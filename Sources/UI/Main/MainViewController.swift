@@ -10,11 +10,18 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "embed_chart_vc", let vc = segue.destination as? ISINChatViewController {
+            vc.api = ApiServiceStub()
+            vc.isin = "123456789101112"
+        }
+    }
 
 }
 
