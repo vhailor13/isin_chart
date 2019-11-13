@@ -20,11 +20,23 @@ class ISINChatViewController: UIViewController
     
     var items: [Obligation] = []
     
+    let chartView: ISINChatView = ISINChatView()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.chartView.backgroundColor = .clear
+        self.view.addSubview(self.chartView)
+    }
+    
+    override func viewDidLayoutSubviews()
+    {
+        super.viewDidLayoutSubviews()
+        
+        self.chartView.frame = self.view.bounds
     }
     
     // MARK: - Private
@@ -34,7 +46,7 @@ class ISINChatViewController: UIViewController
         guard let isin = self.isin else { return }
         
         self.api?.fetch(isin: isin, onSuccess: { [weak self] result in
-            self?.items = result
+            self?.chartView.items = result
         }, onError: { _ in
                 // TODO: handle error
         })

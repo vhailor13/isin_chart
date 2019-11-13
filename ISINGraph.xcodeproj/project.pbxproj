@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57723BA5237B9EDC00176483 /* ISINChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57723BA4237B9EDC00176483 /* ISINChartView.swift */; };
 		577B970F237A650C008F63A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577B9704237A650C008F63A3 /* LaunchScreen.storyboard */; };
 		577B9710237A650C008F63A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577B9705237A650C008F63A3 /* Main.storyboard */; };
 		577B9711237A650C008F63A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577B9707237A650C008F63A3 /* Assets.xcassets */; };
@@ -16,9 +17,12 @@
 		577B971C237A71FB008F63A3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B971B237A71FB008F63A3 /* ApiService.swift */; };
 		577B971E237A725B008F63A3 /* ApServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B971D237A725B008F63A3 /* ApServiceStub.swift */; };
 		577B9721237A734E008F63A3 /* Obligation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B9720237A734E008F63A3 /* Obligation.swift */; };
+		88B6BEDD2C18CAAA5CA9E657 /* Pods_ISINGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F53B0D7E8803B08FE0ACCD /* Pods_ISINGraph.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CFD1F0D14A070754123822E /* Pods-ISINGraph.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISINGraph.release.xcconfig"; path = "Target Support Files/Pods-ISINGraph/Pods-ISINGraph.release.xcconfig"; sourceTree = "<group>"; };
+		57723BA4237B9EDC00176483 /* ISINChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISINChartView.swift; sourceTree = "<group>"; };
 		577B96EC237A633A008F63A3 /* ISINGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISINGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577B9704237A650C008F63A3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		577B9705237A650C008F63A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		577B971B237A71FB008F63A3 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		577B971D237A725B008F63A3 /* ApServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApServiceStub.swift; sourceTree = "<group>"; };
 		577B9720237A734E008F63A3 /* Obligation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obligation.swift; sourceTree = "<group>"; };
+		64A999388BB8BEE8E979573A /* Pods-ISINGraph.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISINGraph.debug.xcconfig"; path = "Target Support Files/Pods-ISINGraph/Pods-ISINGraph.debug.xcconfig"; sourceTree = "<group>"; };
+		D4F53B0D7E8803B08FE0ACCD /* Pods_ISINGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ISINGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B6BEDD2C18CAAA5CA9E657 /* Pods_ISINGraph.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +57,8 @@
 				577B9706237A650C008F63A3 /* Resources */,
 				577B9703237A650C008F63A3 /* Storyboards */,
 				577B96ED237A633A008F63A3 /* Products */,
+				B54188665B5E7BD753F3626A /* Pods */,
+				6C0F31A40B19BB853503B77B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				577B9717237A6D6C008F63A3 /* ISINChartViewController.swift */,
+				57723BA4237B9EDC00176483 /* ISINChartView.swift */,
 			);
 			path = ISINChart;
 			sourceTree = "<group>";
@@ -140,6 +150,24 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		6C0F31A40B19BB853503B77B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4F53B0D7E8803B08FE0ACCD /* Pods_ISINGraph.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B54188665B5E7BD753F3626A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64A999388BB8BEE8E979573A /* Pods-ISINGraph.debug.xcconfig */,
+				4CFD1F0D14A070754123822E /* Pods-ISINGraph.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 577B9700237A633F008F63A3 /* Build configuration list for PBXNativeTarget "ISINGraph" */;
 			buildPhases = (
+				6D53C06CA9B52BEEA5D8B6F9 /* [CP] Check Pods Manifest.lock */,
 				577B96E8237A633A008F63A3 /* Sources */,
 				577B96E9237A633A008F63A3 /* Frameworks */,
 				577B96EA237A633A008F63A3 /* Resources */,
+				A17248D2AF46C283AC6B5DC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,6 +236,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D53C06CA9B52BEEA5D8B6F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ISINGraph-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A17248D2AF46C283AC6B5DC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ISINGraph/Pods-ISINGraph-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ISINGraph/Pods-ISINGraph-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ISINGraph/Pods-ISINGraph-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		577B96E8237A633A008F63A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -215,6 +287,7 @@
 				577B9721237A734E008F63A3 /* Obligation.swift in Sources */,
 				577B9713237A650C008F63A3 /* AppDelegate.swift in Sources */,
 				577B971C237A71FB008F63A3 /* ApiService.swift in Sources */,
+				57723BA5237B9EDC00176483 /* ISINChartView.swift in Sources */,
 				577B971E237A725B008F63A3 /* ApServiceStub.swift in Sources */,
 				577B9712237A650C008F63A3 /* MainViewController.swift in Sources */,
 			);
@@ -339,6 +412,7 @@
 		};
 		577B9701237A633F008F63A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64A999388BB8BEE8E979573A /* Pods-ISINGraph.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +430,7 @@
 		};
 		577B9702237A633F008F63A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CFD1F0D14A070754123822E /* Pods-ISINGraph.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
