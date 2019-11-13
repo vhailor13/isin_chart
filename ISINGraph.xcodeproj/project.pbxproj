@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		57723BA5237B9EDC00176483 /* ISINChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57723BA4237B9EDC00176483 /* ISINChartView.swift */; };
+		57723BA9237BB95E00176483 /* ISINIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57723BA8237BB95E00176483 /* ISINIntervalType.swift */; };
 		577B970F237A650C008F63A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577B9704237A650C008F63A3 /* LaunchScreen.storyboard */; };
 		577B9710237A650C008F63A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577B9705237A650C008F63A3 /* Main.storyboard */; };
 		577B9711237A650C008F63A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577B9707237A650C008F63A3 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		4CFD1F0D14A070754123822E /* Pods-ISINGraph.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISINGraph.release.xcconfig"; path = "Target Support Files/Pods-ISINGraph/Pods-ISINGraph.release.xcconfig"; sourceTree = "<group>"; };
 		57723BA4237B9EDC00176483 /* ISINChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISINChartView.swift; sourceTree = "<group>"; };
+		57723BA8237BB95E00176483 /* ISINIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISINIntervalType.swift; sourceTree = "<group>"; };
 		577B96EC237A633A008F63A3 /* ISINGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISINGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577B9704237A650C008F63A3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		577B9705237A650C008F63A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				577B9717237A6D6C008F63A3 /* ISINChartViewController.swift */,
 				57723BA4237B9EDC00176483 /* ISINChartView.swift */,
+				57723BA8237BB95E00176483 /* ISINIntervalType.swift */,
 			);
 			path = ISINChart;
 			sourceTree = "<group>";
@@ -164,7 +167,6 @@
 				64A999388BB8BEE8E979573A /* Pods-ISINGraph.debug.xcconfig */,
 				4CFD1F0D14A070754123822E /* Pods-ISINGraph.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -286,6 +288,7 @@
 				577B9718237A6D6C008F63A3 /* ISINChartViewController.swift in Sources */,
 				577B9721237A734E008F63A3 /* Obligation.swift in Sources */,
 				577B9713237A650C008F63A3 /* AppDelegate.swift in Sources */,
+				57723BA9237BB95E00176483 /* ISINIntervalType.swift in Sources */,
 				577B971C237A71FB008F63A3 /* ApiService.swift in Sources */,
 				57723BA5237B9EDC00176483 /* ISINChartView.swift in Sources */,
 				577B971E237A725B008F63A3 /* ApServiceStub.swift in Sources */,

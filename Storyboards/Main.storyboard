@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ef-kG-h7M">
-                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <rect key="frame" x="16" y="44" width="382" height="382"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Ef-kG-h7M" secondAttribute="height" multiplier="1:1" id="YYA-Pu-E2J"/>
                                 </constraints>
@@ -29,8 +29,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8Ef-kG-h7M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="04E-8b-s3C"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Ef-kG-h7M" secondAttribute="trailing" id="MK3-qv-5IF"/>
-                            <constraint firstItem="8Ef-kG-h7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c91-jz-SRa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Ef-kG-h7M" secondAttribute="trailing" constant="16" id="MK3-qv-5IF"/>
+                            <constraint firstItem="8Ef-kG-h7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c91-jz-SRa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
