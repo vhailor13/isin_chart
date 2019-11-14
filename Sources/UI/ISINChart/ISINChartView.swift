@@ -15,7 +15,7 @@ enum ISINChartType
 }
 
 fileprivate let gridXValuesCount: Int = 6
-fileprivate let topAreaRelativeHeight: Double = 0.1
+fileprivate let topAreaRelativeHeight: Double = 0.25
 fileprivate let bottomLabelsAreaRelativeHeight: Double = 0.1
 fileprivate let labelsRelativeHeight: Double = 0.075
 fileprivate let bottomChartRelativeOffset: Double = 0.1
@@ -117,8 +117,8 @@ class ISINChatView: MacawView
         return [
             [
                 startY,
-                startY - (self.maxValue - self.minValue) / 2.0 * scale,
-                startY - (self.maxValue - self.minValue) * scale
+                startY - Double(Int((self.maxValue - self.minValue) / 2.0)) * scale,
+                startY - Double(Int(self.maxValue - self.minValue)) * scale
             ].map({ y in
                 Line(x1: 0.0, y1: y, x2: width, y2: y).stroke(fill: gridColor, width: 1.0)
             }).group(),
@@ -180,14 +180,14 @@ class ISINChatView: MacawView
         let scale = (startY - (height * topAreaRelativeHeight)) / (self.maxValue - self.minValue)
         
         return [
-            0.0,
-            (self.maxValue + self.minValue) /  2.0 - self.minValue,
-            self.maxValue - self.minValue
+            self.minValue,
+            (self.maxValue + self.minValue) /  2.0,
+            self.maxValue
             ].map({
                 Text(text: "\(Int($0))",
                      font: labelFont,
                      fill: Color.black,
-                     place: Transform.move(dx: startX - 16.0, dy: startY - $0 * scale - 8.0))
+                     place: Transform.move(dx: startX - 16.0, dy: startY - (Double(Int($0 - self.minValue))) * scale - 8.0))
             }).group()
     }
     
