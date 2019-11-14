@@ -18,6 +18,13 @@ class ISINChatViewController: UIViewController
         }
     }
     
+    var type: ISINChartType = .price
+    {
+        didSet {
+            self.chartView.type = self.type
+        }
+    }
+    
     var items: [Obligation] = []
     
     let chartView: ISINChatView = ISINChatView()

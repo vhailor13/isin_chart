@@ -8,10 +8,10 @@
 
 import Macaw
 
-enum ISINChatType
+enum ISINChartType
 {
     case price
-    case yied
+    case yield
 }
 
 fileprivate let gridXValuesCount: Int = 6
@@ -30,7 +30,7 @@ class ISINChatView: MacawView
         }
     }
     
-    var type: ISINChatType = .price
+    var type: ISINChartType = .price
     {
         didSet {
             self.update()

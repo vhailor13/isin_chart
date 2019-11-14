@@ -25,15 +25,35 @@
                                     <segue destination="SFE-Km-D9p" kind="embed" identifier="embed_chart_vc" id="dW2-tc-oyM"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7o-C3-KIU">
+                                <rect key="frame" x="32" y="60" width="88" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="fmp-M6-LGT"/>
+                                    <constraint firstAttribute="height" constant="44" id="gEb-ss-DCv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <state key="normal" title="Price">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectTypeAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="agA-m2-j1Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8Ef-kG-h7M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="04E-8b-s3C"/>
+                            <constraint firstItem="a7o-C3-KIU" firstAttribute="leading" secondItem="8Ef-kG-h7M" secondAttribute="leading" constant="16" id="Dl2-kK-lQq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Ef-kG-h7M" secondAttribute="trailing" constant="16" id="MK3-qv-5IF"/>
                             <constraint firstItem="8Ef-kG-h7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c91-jz-SRa"/>
+                            <constraint firstItem="a7o-C3-KIU" firstAttribute="top" secondItem="8Ef-kG-h7M" secondAttribute="top" constant="16" id="dH1-Rq-Mpr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="typeBtn" destination="a7o-C3-KIU" id="CvY-rP-re7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +64,7 @@
             <objects>
                 <viewController id="SFE-Km-D9p" customClass="ISINChatViewController" customModule="ISINGraph" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BGU-IO-bvp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="382"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Kxs-pd-Yqs"/>
