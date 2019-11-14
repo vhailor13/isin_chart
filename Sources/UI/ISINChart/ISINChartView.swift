@@ -85,14 +85,21 @@ class ISINChatView: MacawView
         let timeIntervalStep = self.intervalType.timeInterval() / Double(gridXValuesCount)
         
         var lastDate = Date.distantPast
-
+        var i: Int = 0
+        
         self.items.forEach { item in
             guard item.date.timeIntervalSince(lastDate) > timeIntervalStep else { return }
+            
+            defer {
+                i += 1
+            }
             
             lastDate = item.date
             let value = self.type == .price ? item.price : item.yield
             self.chartValues.append(value)
             self.gridDates.append(item.date)
+            
+            guard i < gridXValuesCount else { return }
             
             if value < self.minValue {
                 self.minValue = value
