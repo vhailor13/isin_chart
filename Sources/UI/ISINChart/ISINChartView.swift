@@ -146,7 +146,21 @@ class ISINChatView: MacawView
             startY - ($1 - self.minValue) * scale
             ]
         })
-        return Polyline(points: polylineData.reduce([], +)).stroke(fill: Color.red, width: 2.0)
+        
+        let chartLabels = self.chartValues.enumerated().filter({ $0.0 > 0 }).map({
+            Text(text: String(format: "%.02f", $1),
+            font: labelFont,
+            fill: Color.black,
+            place: Transform.move(
+                dx: startX + Double($0) * stepX - 16.0,
+                dy: startY - ($1 - self.minValue) * scale - 20.0
+            ))
+        }).group()
+        
+        return [
+            Polyline(points: polylineData.reduce([], +)).stroke(fill: Color.red, width: 2.0),
+            chartLabels
+        ].group()
     }
     
     private func border() -> Node
