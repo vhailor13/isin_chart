@@ -26,7 +26,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7o-C3-KIU">
-                                <rect key="frame" x="32" y="60" width="88" height="44"/>
+                                <rect key="frame" x="48" y="60" width="88" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="fmp-M6-LGT"/>
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8Ef-kG-h7M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="04E-8b-s3C"/>
-                            <constraint firstItem="a7o-C3-KIU" firstAttribute="leading" secondItem="8Ef-kG-h7M" secondAttribute="leading" constant="16" id="Dl2-kK-lQq"/>
+                            <constraint firstItem="a7o-C3-KIU" firstAttribute="leading" secondItem="8Ef-kG-h7M" secondAttribute="leading" constant="32" id="Dl2-kK-lQq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Ef-kG-h7M" secondAttribute="trailing" constant="16" id="MK3-qv-5IF"/>
                             <constraint firstItem="8Ef-kG-h7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c91-jz-SRa"/>
                             <constraint firstItem="a7o-C3-KIU" firstAttribute="top" secondItem="8Ef-kG-h7M" secondAttribute="top" constant="16" id="dH1-Rq-Mpr"/>

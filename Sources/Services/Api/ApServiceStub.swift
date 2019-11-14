@@ -16,7 +16,7 @@ class ApiServiceStub: ApiService
         let dayInterval: TimeInterval = 24.0 * 3600.0
         let result = (0...1000).map({ Obligation(
             price: Double.random(in: 5.0..<15.0),
-            yield: Double.random(in: 5.0..<15.0),
+            yield: Double.random(in: 2.0..<8.0),
             date: Date(timeInterval: Double($0) * dayInterval, since: startDate)
             )
         })

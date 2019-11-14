@@ -16,10 +16,11 @@ enum ISINChartType
 
 fileprivate let gridXValuesCount: Int = 6
 fileprivate let topAreaRelativeHeight: Double = 0.1
-fileprivate let bottomLabelsAreaRelativeHeight: Double = 0.2
+fileprivate let bottomLabelsAreaRelativeHeight: Double = 0.1
 fileprivate let labelsRelativeHeight: Double = 0.075
 fileprivate let bottomChartRelativeOffset: Double = 0.1
 fileprivate let leftChartRelativeOffset: Double = 0.1
+fileprivate let labelFont: Font = Font(name: "Helvetica", size: 14, weight: "bold")
 
 class ISINChatView: MacawView
 {
@@ -48,7 +49,7 @@ class ISINChatView: MacawView
     private var minValue: Double = 0.0
     private var maxValue: Double = 0.0
     private var chartValues: [Double] = []
-    private var gridXValues: [Double] = []
+    private var gridDates: [Date] = []
     
     override func layoutSubviews()
     {
@@ -66,7 +67,9 @@ class ISINChatView: MacawView
         self.node = [
             self.border(),
             self.grid(),
-            self.chart()
+            self.chart(),
+            self.yAxisLabels(),
+            self.xAxisLabels()
         ].group()
     }
     
@@ -75,7 +78,7 @@ class ISINChatView: MacawView
         self.minValue = Double.infinity
         self.maxValue = 0.0
         self.chartValues.removeAll()
-        self.gridXValues.removeAll()
+        self.gridDates.removeAll()
         
         let timeIntervalStep = self.intervalTye.timeInterval() / Double(gridXValuesCount)
         
@@ -87,6 +90,7 @@ class ISINChatView: MacawView
             lastDate = item.date
             let value = self.type == .price ? item.price : item.yield
             self.chartValues.append(value)
+            self.gridDates.append(item.date)
             
             if value < self.minValue {
                 self.minValue = value
@@ -104,6 +108,7 @@ class ISINChatView: MacawView
         let height = Double(self.bounds.height)
         let startX = width * leftChartRelativeOffset
         let startY = height * (1.0 - bottomLabelsAreaRelativeHeight - bottomChartRelativeOffset)
+        let bottomLineY = height * (1.0 - bottomChartRelativeOffset)
         let stepX = width / Double(gridXValuesCount)
         let scale = (startY - (height * topAreaRelativeHeight)) / (self.maxValue - self.minValue)
         
@@ -118,8 +123,10 @@ class ISINChatView: MacawView
             
             (0...gridXValuesCount).map({ i in
                 let x = startX + Double(i) * stepX
-                return Line(x1: x, y1: 0, x2: x, y2: height).stroke(fill: self.gridColor, width: 1.0)
+                return Line(x1: x, y1: 0, x2: x, y2: startY + bottomLabelsAreaRelativeHeight * height).stroke(fill: self.gridColor, width: 1.0)
                 }).group(),
+            
+            Line(x1: 0.0, y1: bottomLineY, x2: width, y2: bottomLineY).stroke(fill: self.gridColor, width: 1.0)
         ].group()
     }
     
@@ -146,5 +153,46 @@ class ISINChatView: MacawView
                     w: Double(self.bounds.width),
                     h: Double(self.bounds.height)
         ).stroke(fill: self.gridColor, width: 1.0)
+    }
+    
+    private func yAxisLabels() -> Node
+    {
+        let width = Double(self.bounds.width)
+        let height = Double(self.bounds.height)
+        let startX = width * leftChartRelativeOffset
+        let startY = height * (1.0 - bottomLabelsAreaRelativeHeight - bottomChartRelativeOffset)
+        let scale = (startY - (height * topAreaRelativeHeight)) / (self.maxValue - self.minValue)
+        
+        return [
+            0.0,
+            (self.maxValue + self.minValue) /  2.0 - self.minValue,
+            self.maxValue - self.minValue
+            ].map({
+                Text(text: "\(Int($0))",
+                     font: labelFont,
+                     fill: Color.black,
+                     place: Transform.move(dx: startX - 16.0, dy: startY - $0 * scale - 8.0))
+            }).group()
+    }
+    
+    private func xAxisLabels() -> Node
+    {
+        let width = Double(self.bounds.width)
+        let height = Double(self.bounds.height)
+        let startX = width * leftChartRelativeOffset
+        let startY = height * (1.0 - bottomLabelsAreaRelativeHeight - bottomChartRelativeOffset)
+        let stepX = width / Double(gridXValuesCount)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM"
+        
+        return self.gridDates.enumerated().map({ (i, date) in
+                       let x = startX + Double(i) * stepX
+            
+            return Text(text: dateFormatter.string(from: date),
+            font: labelFont,
+            fill: Color.black,
+            place: Transform.move(dx: x - 16.0, dy: startY + 16.0))
+        }).group()
     }
 }
