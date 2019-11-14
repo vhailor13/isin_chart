@@ -21,6 +21,8 @@ fileprivate let labelsRelativeHeight: Double = 0.075
 fileprivate let bottomChartRelativeOffset: Double = 0.1
 fileprivate let leftChartRelativeOffset: Double = 0.1
 fileprivate let labelFont: Font = Font(name: "Helvetica", size: 14, weight: "bold")
+fileprivate let gridColor: Color = Color(val: 0xBBBBBB)
+fileprivate let selectionColor: Color = Color(val: 0x5555FF)
 
 class ISINChatView: MacawView
 {
@@ -38,14 +40,13 @@ class ISINChatView: MacawView
         }
     }
     
-    var intervalTye: ISINIntervalType = .week
+    var intervalType: ISINIntervalType = .week
     {
         didSet {
             self.update()
         }
     }
-    
-    private let gridColor: Color = Color(val: 0xBBBBBB)
+        
     private var minValue: Double = 0.0
     private var maxValue: Double = 0.0
     private var chartValues: [Double] = []
@@ -69,7 +70,8 @@ class ISINChatView: MacawView
             self.grid(),
             self.chart(),
             self.yAxisLabels(),
-            self.xAxisLabels()
+            self.xAxisLabels(),
+            self.intervalsLabels()
         ].group()
     }
     
@@ -80,7 +82,7 @@ class ISINChatView: MacawView
         self.chartValues.removeAll()
         self.gridDates.removeAll()
         
-        let timeIntervalStep = self.intervalTye.timeInterval() / Double(gridXValuesCount)
+        let timeIntervalStep = self.intervalType.timeInterval() / Double(gridXValuesCount)
         
         var lastDate = Date.distantPast
 
@@ -118,15 +120,15 @@ class ISINChatView: MacawView
                 startY - (self.maxValue - self.minValue) / 2.0 * scale,
                 startY - (self.maxValue - self.minValue) * scale
             ].map({ y in
-                Line(x1: 0.0, y1: y, x2: width, y2: y).stroke(fill: self.gridColor, width: 1.0)
+                Line(x1: 0.0, y1: y, x2: width, y2: y).stroke(fill: gridColor, width: 1.0)
             }).group(),
             
             (0...gridXValuesCount).map({ i in
                 let x = startX + Double(i) * stepX
-                return Line(x1: x, y1: 0, x2: x, y2: startY + bottomLabelsAreaRelativeHeight * height).stroke(fill: self.gridColor, width: 1.0)
+                return Line(x1: x, y1: 0, x2: x, y2: startY + bottomLabelsAreaRelativeHeight * height).stroke(fill: gridColor, width: 1.0)
                 }).group(),
             
-            Line(x1: 0.0, y1: bottomLineY, x2: width, y2: bottomLineY).stroke(fill: self.gridColor, width: 1.0)
+            Line(x1: 0.0, y1: bottomLineY, x2: width, y2: bottomLineY).stroke(fill: gridColor, width: 1.0)
         ].group()
     }
     
@@ -152,7 +154,7 @@ class ISINChatView: MacawView
         return Rect(x: 0.0, y: 0.0,
                     w: Double(self.bounds.width),
                     h: Double(self.bounds.height)
-        ).stroke(fill: self.gridColor, width: 1.0)
+        ).stroke(fill: gridColor, width: 1.0)
     }
     
     private func yAxisLabels() -> Node
@@ -193,6 +195,28 @@ class ISINChatView: MacawView
             font: labelFont,
             fill: Color.black,
             place: Transform.move(dx: x - 16.0, dy: startY + 16.0))
+        }).group()
+    }
+    
+    private func intervalsLabels() -> Node
+    {
+        let width = Double(self.bounds.width)
+        let height = Double(self.bounds.height)
+        let startX = width * leftChartRelativeOffset
+        let y = height * (1.0 - bottomChartRelativeOffset / 2.0) - 8.0
+        let stepX = width / 5.0
+        
+        return (0...5).map({ i in
+            let text = Text(text: ISINIntervalType(rawValue: i)!.label(),
+            font: labelFont,
+            fill: i == self.intervalType.rawValue ? selectionColor : Color.black,
+            place: Transform.move(dx: startX + stepX * Double(i), dy: y))
+            
+            text.onTap { _ in
+                self.intervalType = ISINIntervalType(rawValue: i)!
+            }
+            
+            return text
         }).group()
     }
 }
